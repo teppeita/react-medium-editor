@@ -43,6 +43,12 @@ export default class ReactMediumEditor extends React.Component {
 
     if (this._updated) this._updated = false;
   }
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    if (JSON.stringify(this.props) === JSON.stringify(nextProps) && this.state === nextState)
+      return false
+    return true
+  }
 
   render() {
     const {
